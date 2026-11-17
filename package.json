@@ -4,6 +4,7 @@
   "private": true,
   "description": "A browser-based generative chiptune studio",
   "scripts": {
+    "build": "node scripts/build.cjs",
     "start": "node scripts/serve.cjs",
     "test": "node --test tests/engine.test.cjs"
   }
