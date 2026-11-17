@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Loopchip — Generative Chiptune Studio</title>
+    <meta
+      name="description"
+      content="Create evolving chiptune loops with seeded melodies, eleven sound layers, and live visualizations."
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Press+Start+2P&display=swap"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="brand">loopchip4<small>by jeterer</small></div>
+      </header>
+      <div class="box" data-t="monitor">
+        <canvas
+          aria-label="Selected instrument piano roll"
+          id="cv"
+          width="640"
+          height="220"
+        ></canvas>
+        <div class="thumbs" id="thumbs"></div>
+        <div class="stat">
+          <span class="pill" id="sec">Section –</span
+          ><span class="pill" id="lp">Loop –/–</span
+          ><span class="dots" id="bars"><i></i><i></i><i></i><i></i></span
+          ><span class="pill" id="nx" hidden></span
+          ><span class="pill" id="en" hidden></span>
+        </div>
+      </div>
+      <div class="box" data-t="control">
+        <div class="moods" id="moods"></div>
+        <p id="md" hidden></p>
+        <div id="custom" hidden>
+          <div class="row">
+            <div>
+              <label for="cprog">Chord progression</label
+              ><select id="cprog"></select>
+            </div>
+            <div>
+              <label for="cdrum">Drums</label
+              ><select id="cdrum">
+                <option value="0">Minimal</option>
+                <option value="1">Half-time</option>
+                <option value="2">Standard</option>
+                <option value="3">Driving</option>
+              </select>
+            </div>
+            <div>
+              <label for="cbass">Bass</label
+              ><select id="cbass">
+                <option value="long">Long notes</option>
+                <option value="eighth">Eighth notes</option>
+                <option value="octave">Octave bounce</option>
+                <option value="sync">Syncopated</option>
+              </select>
+            </div>
+            <div>
+              <label for="cwave">Lead sound</label
+              ><select id="cwave">
+                <option value=".125">Thin</option>
+                <option value=".25">Medium</option>
+                <option value=".5">Full</option>
+              </select>
+            </div>
+            <div>
+              <label for="carp">Arp speed</label
+              ><select id="carp">
+                <option value="1">Fast</option>
+                <option value="2">Medium</option>
+                <option value="4">Slow</option>
+              </select>
+            </div>
+            <div>
+              <label for="cdens">Melody busyness</label
+              ><input type="range" id="cdens" min="0" max="100" value="60" />
+            </div>
+            <div>
+              <label for="cswing">Swing</label
+              ><input type="range" id="cswing" min="0" max="30" value="0" />
+            </div>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="go" id="play">▶ PLAY</button
+          ><button id="skip">⏭ NEXT LOOP</button
+          ><button id="reroll">🎲 REROLL NEXT</button
+          ><button id="rs">NEW SEED</button>
+        </div>
+        <p id="status" role="status" aria-live="polite"></p>
+        <div class="lays" id="lays"></div>
+        <div class="row">
+          <div>
+            <label for="mode">Sound</label
+            ><select id="mode">
+              <option value="16">16-bit</option>
+              <option value="8">8-bit</option>
+            </select>
+          </div>
+          <div>
+            <label for="reps">Loops</label
+            ><input type="number" id="reps" min="1" max="32" value="4" />
+          </div>
+          <div>
+            <label for="seed">Seed</label
+            ><input type="number" id="seed" value="1337" />
+          </div>
+          <div>
+            <label for="key">Key</label
+            ><select id="key"></select>
+          </div>
+          <div>
+            <label for="scale">Scale</label
+            ><select id="scale"></select>
+          </div>
+          <div>
+            <label for="bpm">Tempo <span id="bv">120</span> BPM</label
+            ><input type="range" id="bpm" min="60" max="190" value="120" />
+          </div>
+          <div>
+            <label for="vol">Volume</label
+            ><input type="range" id="vol" min="0" max="100" value="60" />
+          </div>
+        </div>
+        <label class="chk"
+          ><input type="checkbox" id="vary" /> Vary loops</label
+        >
+        <label class="chk"
+          ><input type="checkbox" id="build" checked /> Build-up</label
+        >
+      </div>
+      <script defer src="src/data.js"></script>
+      <script defer src="src/controls.js"></script>
+      <script defer src="src/audio.js"></script>
+      <script defer src="src/composition.js"></script>
+      <script defer src="src/sequencer.js"></script>
+      <script defer src="src/visuals.js"></script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,305 @@
+:root {
+  --bg: #f3efe2;
+  --panel: #e6e0cc;
+  --ink: #242424;
+  --mut: #686868;
+  --acc: #d6336c;
+  --c1: #3b5bdb;
+  --c2: #2f9e44;
+  --c3: #f08c00;
+  --grid: #cfc8b0;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121212;
+    --panel: #242424;
+    --ink: #eeeeee;
+    --mut: #a3a3a3;
+    --acc: #ff5c93;
+    --c1: #74c0fc;
+    --c2: #69db7c;
+    --c3: #ffd43b;
+    --grid: #3a3a3a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121212;
+  --panel: #242424;
+  --ink: #eeeeee;
+  --mut: #a3a3a3;
+  --acc: #ff5c93;
+  --c1: #74c0fc;
+  --c2: #69db7c;
+  --c3: #ffd43b;
+  --grid: #3a3a3a;
+}
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    14px/1.4 "Courier New",
+    ui-monospace,
+    monospace;
+}
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 16px;
+}
+h1 {
+  font-size: 20px;
+  margin: 0 0 2px;
+  letter-spacing: 1px;
+}
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 6px;
+  margin-top: 8px;
+}
+.thumbs canvas {
+  cursor: pointer;
+}
+header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.brand {
+  text-align: right;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.brand small {
+  display: block;
+  font-size: 11px;
+  color: var(--mut);
+  font-weight: normal;
+  letter-spacing: 0;
+}
+.box {
+  background: var(--panel);
+  border: 3px solid var(--ink);
+  padding: 10px;
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  border: 2px solid var(--ink);
+}
+.stat {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  align-items: center;
+}
+.pill {
+  border: 2px solid var(--ink);
+  padding: 2px 8px;
+  background: var(--bg);
+}
+.dots {
+  display: flex;
+  gap: 4px;
+}
+.dots i {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--ink);
+  background: var(--bg);
+}
+.dots i.on {
+  background: var(--acc);
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 8px;
+}
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--mut);
+}
+select,
+input[type="number"] {
+  width: 100%;
+  font: inherit;
+  background: var(--bg);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 4px;
+  box-sizing: border-box;
+}
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--acc);
+}
+button {
+  font: inherit;
+  font-weight: bold;
+  background: var(--bg);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  padding: 8px 12px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+button.go,
+button.mood.sel {
+  background: var(--acc);
+  color: #fff;
+}
+.btns,
+.lays,
+.moods {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.lay {
+  padding: 4px 10px;
+  box-shadow: 2px 2px 0 var(--ink);
+  border-width: 2px;
+  font-size: 12px;
+}
+.lay.live {
+  background: var(--c2);
+  color: #102010;
+}
+.lay.off {
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+.chk {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--ink);
+  font-size: 13px;
+  margin-top: 6px;
+}
+#custom {
+  border: 2px dashed var(--ink);
+  padding: 8px;
+  margin-bottom: 10px;
+}
+body {
+  font:
+    11px/1.6 "Silkscreen",
+    "Press Start 2P",
+    ui-monospace,
+    monospace;
+  letter-spacing: 0.3px;
+}
+main {
+  max-width: 820px;
+}
+.box {
+  background: var(--panel);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 12px;
+  margin-bottom: 14px;
+}
+canvas {
+  border: 2px solid var(--ink);
+}
+button {
+  font: inherit;
+  font-weight: bold;
+  background: var(--bg);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  padding: 7px 10px;
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+button:hover {
+  background: var(--panel);
+}
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+button.go,
+button.mood.sel {
+  background: var(--acc);
+  color: #fff;
+}
+.lay {
+  padding: 4px 8px;
+  box-shadow: 2px 2px 0 var(--ink);
+  border-width: 2px;
+  font-size: 10px;
+}
+.lay.live {
+  background: var(--c2);
+  color: #102010;
+}
+.pill {
+  border: 2px solid var(--ink);
+  padding: 2px 8px;
+  background: var(--bg);
+}
+select,
+input[type="number"] {
+  font: inherit;
+  border: 2px solid var(--ink);
+  background: var(--bg);
+  color: var(--ink);
+  border-radius: 0;
+}
+label {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+label.chk {
+  text-transform: none;
+}
+header {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.brand {
+  font-family: "Press Start 2P", "Silkscreen", monospace;
+  font-size: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:focus-visible {
+  outline: 3px solid var(--c1);
+  outline-offset: 4px;
+}
+@media (max-width: 480px) {
+  main {
+    padding: 10px;
+  }
+  .btns button {
+    flex: 1 1 45%;
+  }
+}
